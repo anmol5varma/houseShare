@@ -8,17 +8,18 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, ListView, View } from 'react-native';
+import { StyleSheet, FlatList, View } from 'react-native';
 import HomeRow from '../HomeRow'
 import { getAllHouseList } from '../../api/apiHelper'
 import style from './style'
 
+const styles = StyleSheet.create(style);
+
 export default class HomeList extends Component {
     constructor() {
         super()
-        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
-            dataSource: ds.cloneWithRows([]),
+            dataSource: [],
         };
     }
     async componentWillMount() {
@@ -30,30 +31,27 @@ export default class HomeList extends Component {
             }
         }
         let houseList = await getAllHouseList()
-        houseList.data = houseList.data.map(eachHouseDetail=>{
-            if(!eachHouseDetail.name)
+        houseList.data = houseList.data.map(eachHouseDetail => {
+            if (!eachHouseDetail.name)
                 eachHouseDetail.name = defaultValue.name
-            if(!eachHouseDetail.address)
+            if (!eachHouseDetail.address)
                 eachHouseDetail.address = defaultValue.address
-            if(!eachHouseDetail.images.thumbnail)
+            if (!eachHouseDetail.images.thumbnail)
                 eachHouseDetail.images.thumbnail = defaultValue.images.thumbnail
             return eachHouseDetail
         })
-        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.setState({
-            dataSource: ds.cloneWithRows(houseList.data),
+            dataSource: houseList.data,
         });
     }
     render() {
         return (
-            <View style={styles.container}>
-                <ListView
-                    dataSource={this.state.dataSource}
-                    renderRow={(rowData) => <HomeRow name={rowData.name} address={rowData.address} src={rowData.images.thumbnail}/>}
-                />
-            </View>
+            <FlatList
+                data={this.state.dataSource}
+                keyExtractor={(item, index) => 'key'+index}
+                renderItem={({ item }) => <HomeRow key={`${item.name}_${item.address}`} name={item.name} address={item.address} src={item.images.thumbnail} />
+                }
+            />
         );
     }
 }
-
-const styles = StyleSheet.create(style);

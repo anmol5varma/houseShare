@@ -11,10 +11,9 @@ import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import style from './style'
 
+const styles = StyleSheet.create(style);
 export default class HomeRow extends Component {
     render() {
-        console.log(this.props.src);
-        
         return (
             <View style={styles.container}>
                 <View><Image style={styles.thumbnail} source={{ uri: this.props.src }} /></View>
@@ -26,5 +25,3 @@ export default class HomeRow extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create(style);

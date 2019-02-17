@@ -13,6 +13,8 @@ import style from './style'
 import Header from '../../component/Header'
 import HomeList from '../../component/HomeList'
 
+const styles = StyleSheet.create(style);
+
 export default class App extends Component {
   render() {
     return (
@@ -23,5 +25,3 @@ export default class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create(style);
