@@ -10,19 +10,14 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import style from './style'
-import Header from '../../component/Header'
-import HomeRow from '../../component/HomeRow'
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Header />
-        <HomeRow />
-        <Text style={styles.welcome}>Anmol</Text>
-      </View>
-    );
-  }
+export default class HomeList extends Component {
+    render() {
+        return (
+            <View style={styles.container}>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create(style);
