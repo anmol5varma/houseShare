@@ -15,10 +15,10 @@ export default class HomeRow extends Component {
     render() {
         return (
             <View style={styles.container}>
-                {/* <View style={styles.thumbnail}><Image source={{uri: 'http://hmp.me/ol7'}}/></View> */}
+                <View style={styles.thumbnail}><Image source={{ uri: this.props.src }} /></View>
                 <View style={styles.details}>
-                    <View style={styles.name}><Text>Anmol</Text></View>
-                    <View style={styles.address}><Text>Varma</Text></View>
+                    <Text style={styles.name}>{this.props.name}</Text>
+                    <Text style={styles.address}>{this.props.address}</Text>
                 </View>
             </View>
         );

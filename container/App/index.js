@@ -8,18 +8,19 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import style from './style'
 import Header from '../../component/Header'
-import HomeRow from '../../component/HomeRow'
+import HomeList from '../../component/HomeList'
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Header />
-        <HomeRow />
-        <Text style={styles.welcome}>Anmol</Text>
+        <HomeList />
+        <Text style={styles.welcome}>
+        </Text>
       </View>
     );
   }
