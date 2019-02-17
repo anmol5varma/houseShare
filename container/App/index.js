@@ -19,8 +19,6 @@ export default class App extends Component {
       <View style={styles.container}>
         <Header />
         <HomeList />
-        <Text style={styles.welcome}>
-        </Text>
       </View>
     );
   }

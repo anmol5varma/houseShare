@@ -15,8 +15,6 @@ export default {
     thumbnail:{
         width: 100,
         height: 100,
-        borderWidth: 0.5,
-        borderColor: '#d6d7da',
     },
     details:{
         flex: 1,

@@ -13,9 +13,11 @@ import style from './style'
 
 export default class HomeRow extends Component {
     render() {
+        console.log(this.props.src);
+        
         return (
             <View style={styles.container}>
-                <View style={styles.thumbnail}><Image source={{ uri: this.props.src }} /></View>
+                <View><Image style={styles.thumbnail} source={{ uri: this.props.src }} /></View>
                 <View style={styles.details}>
                     <Text style={styles.name}>{this.props.name}</Text>
                     <Text style={styles.address}>{this.props.address}</Text>

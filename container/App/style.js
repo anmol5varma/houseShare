@@ -4,12 +4,7 @@ export default {
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
-      marginTop: 30
-    },
-    welcome: {
-      flex: 1,
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
+      marginTop: 55,
+      paddingBottom: 55
     },
   }

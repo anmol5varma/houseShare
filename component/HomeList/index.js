@@ -22,7 +22,23 @@ export default class HomeList extends Component {
         };
     }
     async componentWillMount() {
-        const houseList = await getAllHouseList()
+        const defaultValue = {
+            "name": "Owner name",
+            "address": "House address",
+            "images": {
+                "thumbnail": "http://hmp.me/ol6"
+            }
+        }
+        let houseList = await getAllHouseList()
+        houseList.data = houseList.data.map(eachHouseDetail=>{
+            if(!eachHouseDetail.name)
+                eachHouseDetail.name = defaultValue.name
+            if(!eachHouseDetail.address)
+                eachHouseDetail.address = defaultValue.address
+            if(!eachHouseDetail.images.thumbnail)
+                eachHouseDetail.images.thumbnail = defaultValue.images.thumbnail
+            return eachHouseDetail
+        })
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.setState({
             dataSource: ds.cloneWithRows(houseList.data),
